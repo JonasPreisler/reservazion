@@ -3,21 +3,29 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <br />
 
-    <%= text_field_tag(:date, value = nil, html_options = { class: 'form-control datepicker', placeholder: 'mm/dd/yyyy' }) %>
+    <%= text_field_tag(:date, value = nil, html_options = { class: 'form-control datepicker', placeholder: 'Velg en dato' }) %>
 
-    <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control timepicker', placeholder: 'time' }) %>
-    
+    <br />
+    <br />
 
-    Table:
-    <select>
+    <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control timepicker', placeholder: 'Velg en tid' }) %>
+    <br />
+    <br />
+
+
+    Bord:
+    <select class="form-control">
         <% Table.all.each do |table| %>
             <option value="<%= table.id %>"><%= table.number %></option>
         <% end %>
     </select>
   </div>
+    <br />
+    <br />
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Reservér", class: 'btn btn-primary' %>
   </div>
 <% end %>

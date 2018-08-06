@@ -3,7 +3,7 @@
     <%= text_field_tag(:date, value = nil, html_options = { class: 'form-control datepicker', placeholder: 'mm/dd/yyyy' }) %>
 
     <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control timepicker', placeholder: 'time' }) %>
-    <%= t.submit %>
+    <%= t.submit, orders_path %>
   </div>
 <% end %>
 
