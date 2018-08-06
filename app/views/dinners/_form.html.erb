@@ -1,0 +1,31 @@
+
+<div data-provide='datepicker-inline'></div>
+
+<%= simple_form_for :dinner, method: :get do |t| %>
+	  <%= t.input :starts_at, input_html: { class: 'flatpickr' } %>
+	  <%= t.input :ends_at, input_html: { class: 'flatpickr' } %>	  
+	  <%= t.submit "Go", class: 'btn btn-primary' %>
+<% end %>
+
+<%= simple_form_for(@dinner) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="form-inputs">
+    <%= f.input :table_id %>
+    <select name="post[table_id]">
+        <% Table.all.each do |table| %>
+            <option value="<%= table.id %>"><%= table.id %></option>
+        <% end %>
+    </select>
+
+
+    <%= f.input :starts_at, input_html: { class: 'flatpickr' } %>
+    <%= f.input :ends_at %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -19,4 +19,15 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require chosen-jquery
+//= require moment
+//= require picker
+//= require picker.date
+//= require picker.time
 //= require_tree .
+
+
+$().ready(function () {
+  $('.datepicker').pickadate();
+  $('.timepicker').pickatime()
+});
+

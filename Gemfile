@@ -41,9 +41,8 @@ gem 'route_downcaser'
 gem 'jquery-ui-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jquery-rails'
-
-
-
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'pickadate-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
