@@ -56,3 +56,14 @@
 .logoindex {
   width: 150px;
 }
+
+.mobile {
+  background: linear-gradient(to bottom right, #5EC3B2, #68639C);
+}
+.form-control[readonly] {
+  background: #fff !important;
+  padding: 20px;
+}
+.form-control::-moz-placeholder {
+  font-weight: 700;
+}
