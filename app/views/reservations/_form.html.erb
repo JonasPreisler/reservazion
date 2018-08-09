@@ -2,30 +2,41 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
     <br />
-
-    <%= text_field_tag(:date, value = nil, html_options = { class: 'form-control datepicker', placeholder: 'Velg en dato' }) %>
-
-    <br />
-    <br />
-
-    <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control timepicker', placeholder: 'Velg en tid' }) %>
+  <div style="position: relative">
+    <div class="box2">
+    <%= text_field_tag("reservation[date]", value = @reservation.date, html_options = { class: 'form-control datepicker', placeholder: 'Seleccione fecha' }) %>
+    </div>
     <br />
     <br />
 
-
-    <span style="color:#fff;"> Bord:</span>
-    <select class="form-control">
-        <% Table.all.each do |table| %>
-            <option value="<%= table.id %>"><%= table.number %></option>
-        <% end %>
-    </select>
-  </div>
+    <div class="box2">
+      <%= text_field_tag("reservation[time]", value = @reservation.time&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Seleccionar hora' }) %>
+    </div>
+  </div>  
     <br />
     <br />
 
-  <div class="form-actions">
-    <%= f.submit "Reservér", class: 'btn btn-primary' %>
-  </div>
+    <center>
+
+      <span style="color:#fff;font-size:30px;"> Mesa:</span>
+      <br />
+
+      <% Table.all.each do |rt| %>
+        <div class="btn-group" data-toggle="buttons-radio">
+          <%= f.hidden_field :table_id, :value => rt.id %>
+          <label for="first" class="btn btn-primary box3"><%= rt.id %>
+          </label>
+        </div>
+      <% end %>
+
+      <br />
+      <br />
+      <br />
+
+      <div class="form-actions">
+        <%= f.submit "Reserva", class: 'btn-submit box2' %>
+      </div>
+    </center>
+
 <% end %>

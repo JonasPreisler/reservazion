@@ -1,3 +1,4 @@
 class Reservation < ApplicationRecord
-  belongs_to :table
+	validates_presence_of :table_id, :presence => true
+    belongs_to :table
 end
