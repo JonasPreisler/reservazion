@@ -18,7 +18,7 @@
       <tr>
         <td><%= reservation.date %></td>
         <td><%= reservation.time.strftime('%H:%M') %></td>
-        <td><%= reservation.guests %></td>
+        <td><%= reservation.guest %></td>
         <td><%= reservation.table_id %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>

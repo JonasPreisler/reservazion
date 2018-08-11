@@ -44,7 +44,11 @@
 	  <strong>Mesa:</strong>
 	  <%= @reservation.table.id %>
 	</h2>
-
+	
+	<h2>
+	  <strong>Mesa:</strong>
+	  <%= @reservation.guest %>
+	</h2>
 	<%= link_to 'Change reservation', edit_reservation_path(@reservation) %> |
     <%= link_to 'Cancel reservation', @reservation, method: :delete, data: { confirm: 'Are you sure?.' } %>
 
