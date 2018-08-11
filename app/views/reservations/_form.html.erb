@@ -24,14 +24,14 @@
     <br />
     <br />
     <center>
-      <%= f.number_field :guest, placeholder: "¿Cuántos invitados?", class: 'box4' %>
+      <%= f.number_field :guest, placeholder: "¿Cuántos invitados?", class: 'box4 number_field' %>
     </center>
     <br />
     <br />
 
     <center>
 
-          <%= link_to 'Seleccionar tabla', tables_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
+      <%= link_to 'Seleccionar tabla', tables_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
       <div id="modal-window" class="modal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
 
 
