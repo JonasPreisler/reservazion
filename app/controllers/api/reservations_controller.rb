@@ -64,6 +64,11 @@ module Api
       end
     end
 
+  def connect
+    messenger_user_id = params['messenger user id']
+  end
+  
+
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_reservation
@@ -72,7 +77,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def reservation_params
-        paramspermit(:date, :time, :table_id, :guest)
+        paramspermit(:date, :time, :table_id, :guest, :messenger_user_id, :'messenger user id')
       end
   end
 end

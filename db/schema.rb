@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_103026) do
+ActiveRecord::Schema.define(version: 2018_08_11_112153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 2018_08_11_103026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "guest"
+    t.string "messenger_user_id"
+    t.string "messenger user id"
     t.index ["table_id"], name: "index_reservations_on_table_id"
   end
 
