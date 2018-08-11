@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations
+  get "reservations/table" => 'reservations#table', :as => :table
   resources :tables
   resources :dinners
   resources :orders
@@ -12,4 +13,6 @@ Rails.application.routes.draw do
       resources :orders
   	end
   end
+  get '/table', to: 'modals#table'
+
 end

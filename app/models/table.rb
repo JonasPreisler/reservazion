@@ -1,3 +1,3 @@
 class Table < ApplicationRecord
-	has_many :dinners
+	has_many :reservations
 end

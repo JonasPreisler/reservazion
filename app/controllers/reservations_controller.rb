@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @table = Table.all
   end
 
   # GET /reservations/1/edit
@@ -59,6 +60,13 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def table
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

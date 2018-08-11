@@ -18,6 +18,7 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap/modal
 //= require chosen-jquery
 //= require picker
 //= require picker.date
@@ -38,5 +39,4 @@ $().ready(function () {
 	max: [22,0]
   })
 });
-
 

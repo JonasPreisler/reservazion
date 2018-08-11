@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Fecha:</strong>
   <%= @reservation.date %>
@@ -12,7 +13,7 @@
 
 <p>
   <strong>Mesa:</strong>
-  <%= @reservation.table.number %>
+  <%= @reservation.table.id %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |

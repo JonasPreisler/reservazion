@@ -1,3 +1,7 @@
+<script>
+  $("#modal-window").html("<%= escape_javascript(render 'modals/table') %>");
+</script>
+
 <%= simple_form_for(@reservation) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -19,14 +23,21 @@
 
     <center>
 
-      <span style="color:#fff;font-size:30px;"> Mesa:</span>
+          <%= link_to 'Table', tables_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
+      <div id="modal-window" class="modal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+
+
+      <%= image_tag ('/tables.png') %>
+
+      <br />
+      <br />
       <br />
 
-      <% Table.all.each do |rt| %>
-        <div class="btn-group" data-toggle="buttons-radio">
-          <%= f.hidden_field :table_id, :value => rt.id %>
-          <label for="first" class="btn btn-primary box3"><%= rt.id %>
-          </label>
+      <% Table.all.each do |s| %>
+
+        <div class="btn-group" data-toggle="buttons-radio" style="color:#fff;font-size:20px;padding-left:10px;padding-right:10px;">
+          <%= s.id %><br />
+          <%= f.radio_button("table_id", s.id) %>
         </div>
       <% end %>
 
