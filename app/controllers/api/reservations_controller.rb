@@ -1,5 +1,7 @@
 module Api
   class ReservationsController < ApplicationController
+    protect_from_forgery with: :null_session
+    skip_before_action :verify_authenticity_token
     before_action :set_reservation, only: [:show, :edit, :update, :destroy]
     layout 'mobile'
 
