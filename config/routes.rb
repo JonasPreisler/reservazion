@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :reservations
   get "reservations/table" => 'reservations#table', :as => :table
+  namespace 'api' do
+    resources :reservations
+    get "reservations/table" => 'reservations#table', :as => :table
+  end
   resources :tables
   resources :dinners
   resources :orders
