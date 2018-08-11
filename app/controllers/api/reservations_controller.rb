@@ -29,7 +29,7 @@ module Api
     def create
       @reservation = Reservation.new(reservation_params)
       if @reservation.save
-        render json: { "messages": [   {"text": "#{bot_user.first_name}, welcome!"} ] }
+        render json: { "messages": [   {"text": "#{@reservation.table_id}, #{@reservation.time}, #{@reservationdate} welcome!"} ] }
       end
     end
 
