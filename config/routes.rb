@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :businesses
   resources :customers
-  root to: "reservations#index"
+  root to: "reservations#new"
   namespace 'api' do
     namespace 'v1' do
       resources :orders
