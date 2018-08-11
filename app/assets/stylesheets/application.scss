@@ -20,16 +20,21 @@
 @import "default.date";
 @import "default.time";
 
+@font-face {
+    font-family: 'poppins';
+    src: asset_url('font/Poppins-Light.otf');
+    src: asset_url('font/akagi-th-webfont.otf?#iefix') format('embedded-opentype');
+    font-weight: 300;
+    font-style: normal;
+}
 
 
 body {
-    font-family: poppins !important;
     font-weight: 300;
 	color: #ccc;
 	font-size: 18px;
 }
 p {
-    font-family: poppins !important;
     font-weight: 300;
 	font-size: 18px;
 }

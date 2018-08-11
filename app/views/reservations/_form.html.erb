@@ -2,6 +2,8 @@
   $("#modal-window").html("<%= escape_javascript(render 'modals/table') %>");
 </script>
 
+<div style="margin-top:20px"></div>
+
 <%= simple_form_for(@reservation) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
