@@ -8,9 +8,9 @@
 }
 .body {
 	background-color: #eaeaea !important;
-@font-face {
-  font-family: poppins;
-}
+  @font-face {
+    font-family: poppins;
+  }
 }
 .box {
   position: relative;
@@ -137,4 +137,19 @@
 .responsive {
     width: 100%;
     height: auto;
+}
+td {font-size: 16px;}
+.grey-text { color: #1c1c1c; }
+
+#notice { color: #ddd; }
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  border:none;
+}
+.box4 {
+  background: linear-gradient(to bottom right, #c43240, #c46d32) !important;
+  border:none;
+  border-radius: 5px;
+  padding: 10px;
 }

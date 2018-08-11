@@ -72,7 +72,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def reservation_params
-        paramspermit(:date, :time, :table_id)
+        paramspermit(:date, :time, :table_id, :guest)
       end
   end
 end

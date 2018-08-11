@@ -40,3 +40,13 @@ $().ready(function () {
   })
 });
 
+$('#counter').countdown({
+    stepTime: 60,
+    format: 'hh:mm:ss',
+    startTime: "12:32:55",
+    digitImages: 6,
+    digitWidth: 53,
+    digitHeight: 77,
+    timerEnd: function() { /* Redirect here */ },
+    image: "digits.png"
+ });

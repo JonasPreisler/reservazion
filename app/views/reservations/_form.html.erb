@@ -20,10 +20,16 @@
   </div>  
     <br />
     <br />
+    <center>
+      How many guests?<br />
+      <%= f.number_field :guest, placeholder: "¿Cuántos invitados?", class: 'box4' %>
+    </center>
+    <br />
+    <br />
 
     <center>
 
-          <%= link_to 'Table', tables_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
+          <%= link_to 'Seleccionar tabla', tables_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
       <div id="modal-window" class="modal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
 
 
@@ -35,7 +41,7 @@
 
       <% Table.all.each do |s| %>
 
-        <div class="btn-group" data-toggle="buttons-radio" style="color:#fff;font-size:20px;padding-left:10px;padding-right:10px;">
+        <div class="btn-group" data-toggle="buttons-radio" style="color:#fff;font-size:24px;padding-left:15px;padding-right:15px;">
           <%= s.id %><br />
           <%= f.radio_button("table_id", s.id) %>
         </div>

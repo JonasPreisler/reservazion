@@ -1,20 +1,51 @@
+<center>
 <p id="notice"><%= notice %></p>
+<br />
 
+	<h4>
+	  Redirecting to Messenger.com after <span id="countdown">10</span> seconds
+	</h4>
+	
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @reservation.date %>
-</p>
+	<script type="text/javascript">
+	    
+	    // Total seconds to wait
+	    var seconds = 10;
+	    
+	    function countdown() {
+	        seconds = seconds - 1;
+	        if (seconds < 0) {
+	            // Chnage your redirection link here
+	            window.location = "https://www.messenger.com/closeWindow/?image_url=https://i.ytimg.com/vi/owjuZW4EDlE/hqdefault.jpg&display_text=thanks_for_your_reservation!";
+	        } else {
+	            // Update remaining seconds
+	            document.getElementById("countdown").innerHTML = seconds;
+	            // Count down using javascript
+	            window.setTimeout("countdown()", 1000);
+	        }
+	    }
+	    
+	    // Run countdown function
+	    countdown();
+	    
+	</script>
 
-<p>
-  <strong>Hora:</strong>
-  <%= @reservation.time.strftime('%H:%M') %>
-</p>
+	<h2>
+	  <strong>Fecha:</strong>
+	  <%= @reservation.date %>
+	</h2>
 
-<p>
-  <strong>Mesa:</strong>
-  <%= @reservation.table.id %>
-</p>
+	<h2>
+	  <strong>Hora:</strong>
+	  <%= @reservation.time.strftime('%H:%M') %>
+	</h2>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+	<h2>
+	  <strong>Mesa:</strong>
+	  <%= @reservation.table.id %>
+	</h2>
+
+	<%= link_to 'Change reservation', edit_reservation_path(@reservation) %> |
+    <%= link_to 'Cancel reservation', @reservation, method: :delete, data: { confirm: 'Are you sure?.' } %>
+
+</center>

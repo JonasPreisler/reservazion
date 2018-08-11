@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  layout 'mobile'
+  layout 'mobile', only: [:new, :form, :create, :show, :edit, :update, :destroy]
 
   # GET /reservations
   # GET /reservations.json
@@ -27,8 +27,15 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-    if @reservation.save
-      render json: { "messages": [   {"text": "#{@reservation.table_id}, #{@reservation.time}, #{@reservationdate} welcome!"} ] }
+
+    respond_to do |format|
+      if @reservation.save
+        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.json { render :show, status: :created, location: @reservation }
+      else
+        format.html { render :new }
+        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -71,6 +78,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.fetch(:reservation).permit(:date, :time, :table_id)
+      params.fetch(:reservation).permit(:date, :time, :table_id, :guest)
     end
 end
