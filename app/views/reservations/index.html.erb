@@ -16,13 +16,62 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.date %></td>
-        <td><%= reservation.time.strftime('%H:%M') %></td>
-        <td><%= reservation.guest %></td>
-        <td><%= reservation.table_id %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+        <% if reservation.date.to_date.today? %>
+        <td class="today">
+          <%= reservation.date %></td>
+        <td class="today">
+          <%= reservation.time.strftime('%H:%M') %></td>
+        <td class="today">
+          <%= reservation.guest %></td>
+        <td class="today">
+          <%= reservation.table_id %></td>
+        <td class="today">
+          <%= link_to 'Show', reservation %></td>
+        <td class="today">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="today">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <% if reservation.date.to_date.future? %>
+        <td class="future">
+          <%= reservation.date %></td>
+        <td class="future">
+          <%= reservation.time.strftime('%H:%M') %></td>
+        <td class="future">
+          <%= reservation.guest %></td>
+        <td class="future">
+          <%= reservation.table_id %></td>
+        <td class="future">
+          <%= link_to 'Show', reservation %></td>
+        <td class="future">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="future">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <% if reservation.date.to_date.past? %>
+        <td class="past">
+          <%= reservation.date %></td>
+        <td class="past">
+          <%= reservation.time.strftime('%H:%M') %></td>
+        <td class="past">
+          <%= reservation.guest %></td>
+        <td class="past">
+          <%= reservation.table_id %></td>
+        <td class="past">
+          <%= link_to 'Show', reservation %></td>
+        <td class="past">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="past">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

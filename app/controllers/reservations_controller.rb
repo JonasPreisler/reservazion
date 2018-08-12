@@ -82,6 +82,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.fetch(:reservation).permit(:date, :time, :table_id, :guest, :messenger_user_id, :'messenger user id')
+      params.fetch(:reservation).permit(:date, :time, :table_id, :guest, :messenger_user_id, :'messenger user id', :slot)
     end
 end

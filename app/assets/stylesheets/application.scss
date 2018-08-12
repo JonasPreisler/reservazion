@@ -23,11 +23,9 @@
 @font-face {
     font-family: 'poppins';
     src: asset_url('font/Poppins-Light.otf');
-    src: asset_url('font/akagi-th-webfont.otf?#iefix') format('embedded-opentype');
     font-weight: 300;
     font-style: normal;
 }
-
 
 body {
     font-weight: 300;
@@ -43,3 +41,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 strong { color: #D4AF37 !important; }
 a  { color: #9a9a9a !important; }
+td { font-family: helvetica; font-weight: 500; font-size: 22px; }

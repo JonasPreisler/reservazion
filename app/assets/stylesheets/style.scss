@@ -56,10 +56,12 @@
 }
 .btn-primary {
 	margin: 10px;
-	height: 50%;
 	color: #fff !important;
   background: linear-gradient(to bottom right, #1c1c1c, #323232) !important;
 	border: none !important;
+}
+.btn-primary:hover {
+  border: 2px solid #c43240;
 }
 .btn-submit {
   margin: 10px;
@@ -151,3 +153,36 @@ input[type=number]::-webkit-inner-spin-button {
   padding: 10px;
   width: 200px;
 }
+label > input{
+  visibility: hidden;
+  position: absolute;
+}
+label > input + span{
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+/* RESERVATIONS PAGE */
+.today {
+  background: #ccffe5 !important;
+}
+.today a {
+  color: #1c1c1c !important;
+}
+.today a:hover {
+  color: #888 !important;
+  background: none;
+  text-decoration: none;
+}
+.past {
+  background: #c3c2c2 !important;
+}
+.past a {
+  color: #1c1c1c !important;
+}
+.past a:hover {
+  color: #888 !important;
+  background: none;
+  text-decoration: none;
+}
+/* END OF RESERVATIONS PAGE */

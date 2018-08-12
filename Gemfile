@@ -42,6 +42,7 @@ gem 'jquery-ui-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jquery-rails'
 gem 'pickadate-rails'
+gem 'whenever', require: false
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :slots
   resources :reservations
   namespace 'api' do
     resources :reservations
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
   	end
   end
   get '/table', to: 'modals#table'
+  get '/dates', to: 'modals#dates'
 
 end
