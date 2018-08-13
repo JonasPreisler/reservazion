@@ -1,5 +1,6 @@
 class SlotsController < ApplicationController
   before_action :set_slot, only: [:show, :edit, :update, :destroy]
+  layout 'mobile', only: [:new, :form, :create, :show, :edit, :update, :destroy]
 
   # GET /slots
   # GET /slots.json
@@ -16,6 +17,7 @@ class SlotsController < ApplicationController
   def new
     @slot = Slot.new
     @table = Table.all
+    @reservation = reservation.slot
   end
 
   # GET /slots/1/edit
@@ -43,7 +45,7 @@ class SlotsController < ApplicationController
   def update
     respond_to do |format|
       if @slot.update(slot_params)
-        format.html { redirect_to @slot, notice: 'Slot was successfully updated.' }
+        format.html { redirect_to reservation_path(params[:slot][:reservation_id]), notice: 'Slot was successfully updated.' }
         format.json { render :show, status: :ok, location: @slot }
       else
         format.html { render :edit }

@@ -1,21 +1,34 @@
-<h1>Select table</h1>
-
-<br />
+<center>
 <%= simple_form_for(@slot) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 	<%= f.hidden_field :slot, :value=>@slot.id %>
 
+    <%= image_tag ('/tables.png'), class: 'responsive' %>
+
+    <br />
+    <br />
+    Selecciona una mesa
+    <br />
+    <br />
+
+    <input type="hidden" value="1" name="slot[reservation_id]" id="slot_reservation_id">
+
+
 	<% Table.all.each do |rt| %>
-	  <label class="btn btn-primary box3 <%= 'reserved' if @slot.table_id? %>" for="reservation_table_id_<%=rt.id%>">
+	  <label data-toggle="buttons-radio" class="btn btn-primary <%= 'box3' if @slot.table_id != rt.id %> <%= 'reserved' if @slot.table_id == rt.id %>" for="slot_table_id_<%=rt.id%>">
 	    <%= f.radio_button :table_id, rt.id %>
-	    <span><%= rt.id %></span>
+	    <span><%= rt.id %> <span style="font-size: 12px;"><%= 'RESERVADO' if @slot.table_id == rt.id %></span></span>
 	  </label>
 	<% end %>
+    <br />
+    <br />
+    <br />
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+	<div class="form-actions">
+	  <%= f.submit "Reserva", class: 'btn-submit box2' %>
+	</div>
 <% end %>
 
-<%= link_to 'Back', slots_path %>
+<%= link_to 'Back', root_path %>
+</center>
