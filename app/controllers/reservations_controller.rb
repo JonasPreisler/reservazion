@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to edit_slot_path(@reservation.slot_id), notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }
@@ -85,4 +85,7 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.fetch(:reservation).permit(:date, :time, :table_id, :guest, :messenger_user_id, :'messenger user id', :slot_id)
     end
+
+
+
 end

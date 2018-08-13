@@ -25,6 +25,31 @@
   <br />
   <br />
 
+
+<% Slot.all.each do |sl| %>
+  <div class="flex-container">
+    <div>
+      <% if sl.date.to_date.today? %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex-container">
+    <div>
+      <% if sl.date.to_date == Date.tomorrow %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
   <table>
     <thead>
       <tr>
@@ -43,7 +68,7 @@
       </tr>
     </thead>
     <% Slot.all.each do |sl| %>
-      <tbody style="position:top;">
+      <tbody>
         <tr>
           <td>
             <% if sl.date.to_date.today? %>
@@ -53,6 +78,8 @@
               </label>
             <% end %>
           </td>
+        </tr>
+        <tr>
           <td>
             <% if sl.date.to_date == Date.tomorrow %>
               <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -61,16 +88,20 @@
               </label>
             <% end %>
           </td>
+        </tr>
+        <tr>
           <td>
-            <% if sl.date.to_date == 2.days.from_now %>
+            <% if sl.date.to_date == Date.today + 2.days %>
               <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
                 <%= f.radio_button :slot_id, sl.id %>
                 <span><%= sl.time.strftime('%H:%M') %></span>
               </label>
             <% end %>
           </td>
+        </tr>
+        <tr>
           <td>
-            <% if sl.date.to_date == 3.days.from_now %>
+            <% if sl.date.to_date == Date.today + 3.days %>
               <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
                 <%= f.radio_button :slot_id, sl.id %>
                 <span><%= sl.time.strftime('%H:%M') %></span>

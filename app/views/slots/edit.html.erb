@@ -1,6 +1,21 @@
-<h1>Editing Slot</h1>
+<h1>Select table</h1>
 
-<%= render 'form', slot: @slot %>
+<br />
+<%= simple_form_for(@slot) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+	<%= f.hidden_field :slot, :value=>@slot.id %>
 
-<%= link_to 'Show', @slot %> |
+	<% Table.all.each do |rt| %>
+	  <label class="btn btn-primary box3 <%= 'reserved' if @slot.table_id? %>" for="reservation_table_id_<%=rt.id%>">
+	    <%= f.radio_button :table_id, rt.id %>
+	    <span><%= rt.id %></span>
+	  </label>
+	<% end %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', slots_path %>

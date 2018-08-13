@@ -15,6 +15,7 @@ class SlotsController < ApplicationController
   # GET /slots/new
   def new
     @slot = Slot.new
+    @table = Table.all
   end
 
   # GET /slots/1/edit
@@ -69,6 +70,6 @@ class SlotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slot_params
-      params.require(:slot).permit(:date, :time)
+      params.require(:slot).permit(:date, :time, :table_id)
     end
 end
