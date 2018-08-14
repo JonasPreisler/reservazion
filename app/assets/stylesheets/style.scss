@@ -142,7 +142,7 @@
   -ms-transition:     background 0.5s;
   -o-transition:      background 0.5s;
   transition:         background 0.5s;
-
+  width: 26%;
 }
 .box3:hover { -webkit-box-shadow:none;box-shadow:none;background:#494949 !important; }
 .box3:visited { -webkit-box-shadow:none;box-shadow:none;background:#494949 !important; }
@@ -222,3 +222,26 @@ label > input + span{
   background: #494949 !important;
 }
 .hidden { display: none; }
+
+/* NEW RESERVATION PAGE */
+
+.list_container {
+  direction: ltr;
+  overflow-x:scroll;
+  height: 50px;
+  width: 100px;
+}
+
+#item_direction {
+  direction:ltr;
+}
+div.ex1 {
+  width: 250px;
+  overflow-x: scroll;
+  height: 38px;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* END OF NEW RESERVATION PAGE */

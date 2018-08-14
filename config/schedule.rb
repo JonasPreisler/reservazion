@@ -20,13 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :monday, at: '1pm' do
-  runner "Reservation.make_time_slots"
-end
-
-every :monday, at: '4pm' do
-  runner "Reservation.make_time_slots"
-end
-
-every :monday, at: '8am' do
-  runner "Reservation.make_time_slots"
+  runner "Slot.make_time_slots"
 end

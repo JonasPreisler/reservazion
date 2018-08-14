@@ -1,3 +1,40 @@
+<script> 
+$(document).ready(function(){
+    $('#day1').click(function(){
+       $("#0").not("#1").slideUp();
+       $("#1").slideToggle();
+    });
+
+    $('#day2').click(function(){
+       $("#0").not("#2").slideUp();
+       $("#2").slideToggle();
+    });
+    $("#day3").click(function(){
+        $("#3").slideToggle("slow");
+    });
+    $("#day4").click(function(){
+        $("#4").slideToggle("slow");
+    });
+    $("#day5").click(function(){
+        $("#5").slideToggle("slow");
+    });
+    $("#day6").click(function(){
+        $("#6").slideToggle("slow");
+    });
+    $("#day7").click(function(){
+        $("#7").slideToggle("slow");
+    });
+    $("#day8").click(function(){
+        $("#8").slideToggle("slow");
+    });
+    $("#day9").click(function(){
+        $("#9").slideToggle("slow");
+    });
+});
+</script>
+
+
+
 <div style="margin-top:20px"></div>
 
 <%= simple_form_for(@reservation) do |f| %>
@@ -12,126 +49,139 @@
     <%= f.number_field :guest, :value=>2, class: 'box4' %>
   </center>
   <br />
-  <br />
 
-
-
-  <div class="row">
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-        <thead>
-            <tr><th><div onclick="toggle_div('yes');">Today</div><br /><br /></th></tr>
-        </thead>
-        <div id="yes" style="display:none;">
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date.today? %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-        </div>
-      </table>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-          <thead>
-              <tr><th>Tomorrow<br /><br /></th></tr>
-          </thead>
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date.tomorrow %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-          <thead>
-              <tr><th><%= (Date.today + 2.days).strftime("%A") %><br /><br /></th></tr>
-          </thead>
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date == Date.today + 2.days %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-          <thead>
-              <tr><th><%= (Date.today + 3.days).strftime("%A") %><br /><br /></th></tr>
-          </thead>
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date == Date.today + 3.days %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-          <thead>
-              <tr><th><%= (Date.today + 4.days).strftime("%A") %><br /><br /></th></tr>
-          </thead>
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date == Date.today + 4.days %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-3">
-      <table>
-          <thead>
-              <tr><th><%= (Date.today + 5.days).strftime("%A") %><br /><br /></th></tr>
-          </thead>
-          <% Slot.all.each do |sl| %>
-            <tbody>
-                <td>
-                  <% if sl.date.to_date == Date.today + 5.days %>
-                  <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
-                    <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
-                    <span><%= sl.time.strftime('%H:%M') %></span>
-                  </label>
-                <% end %>
-                </td>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
+  <center>
+  <div class="ex1">  
+    <table>
+      <thead>
+          <tr>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day1">Today</</th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day2">Tomorrow</th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day3"><%= (Date.today + 2.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day4"><%= (Date.today + 3.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day5"><%= (Date.today + 4.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day6"><%= (Date.today + 5.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day7"><%= (Date.today + 6.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day8"><%= (Date.today + 7.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day9"><%= (Date.today + 8.days).strftime("%A") %></th>
+            <th id="item_direction" style="padding-right: 10px;"><span id="day10"><%= (Date.today + 9.days).strftime("%A") %></th>
+          </tr>
+      </thead>
+    </table>
   </div>
+  
+
+  <div id="1">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date.today? %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="2" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 1.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="3" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 2.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="4" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 3.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="5" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 4.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="6" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 5.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="7" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 6.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="8" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 7.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="9" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 8.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+  <div id="10">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 9.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <span><%= sl.time.strftime('%H:%M') %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>  
+
+</center>
+
+  
 <% end %>
