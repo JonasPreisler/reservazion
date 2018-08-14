@@ -2,7 +2,7 @@
 <%= simple_form_for(@slot) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-	<%= f.hidden_field :slot, :value=>@slot.id %>
+
 
     <%= image_tag ('/tables.png'), class: 'responsive' %>
 
