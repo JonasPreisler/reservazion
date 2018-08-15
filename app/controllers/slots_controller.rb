@@ -31,7 +31,7 @@ class SlotsController < ApplicationController
 
     respond_to do |format|
       if @slot.save
-        format.html { redirect_to @slot, notice: 'Slot was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Slot was successfully created.' }
         format.json { render :show, status: :created, location: @slot }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class SlotsController < ApplicationController
   def update
     respond_to do |format|
       if @slot.update(slot_params)
-        format.html { redirect_to reservation_path(params[:slot][:reservation_id]), notice: 'Slot was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Slot was successfully updated.' }
         format.json { render :show, status: :ok, location: @slot }
       else
         format.html { render :edit }
@@ -72,6 +72,6 @@ class SlotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slot_params
-      params.require(:slot).permit(:date, :time, :table_id, :slot, :reservation_id).merge(:slot_id)
+      params.require(:slot).permit(:date, :time, :table_id, :slot, :reservation_id).merge(:slot)
     end
 end

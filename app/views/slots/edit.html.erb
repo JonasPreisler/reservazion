@@ -12,7 +12,8 @@
     <br />
     <br />
 
-    <input type="hidden" value="1" name="slot[reservation_id]" id="slot_reservation_id">
+
+    <input type="hidden" value="<%= @slot.id %>" name="id">
 
 
 	<% Table.all.each do |rt| %>
