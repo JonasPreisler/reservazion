@@ -2,16 +2,16 @@
 <p id="notice"><%= notice %></p>
 <br />
 
-	<h4>
+    <h4>
 	  Redirecting to Messenger.com after <span id="countdown">10</span> seconds
 	</h4>
-	
+
 
 	<script type="text/javascript">
-	    
+
 	    // Total seconds to wait
 	    var seconds = 10;
-	    
+
 	    function countdown() {
 	        seconds = seconds - 1;
 	        if (seconds < 0) {
@@ -24,27 +24,27 @@
 	            window.setTimeout("countdown()", 1000);
 	        }
 	    }
-	    
+
 	    // Run countdown function
 	    countdown();
-	    
+
 	</script>
 
 	<h2>
 	  <strong>Fecha:</strong>
-	  <%= @reservation.date %>
+	  <%= @reservation.slot.date %>
 	</h2>
 
 	<h2>
 	  <strong>Hora:</strong>
-	  <%= @reservation.time.strftime('%H:%M') %>
+	  <%= @reservation.slot.time.strftime('%H:%M') %>
 	</h2>
 
 	<h2>
 	  <strong>Mesa:</strong>
 	  <%= @reservation.slot.table_id %>
 	</h2>
-	
+
 	<h2>
 	  <strong>Invitados:</strong>
 	  <%= @reservation.guest %>

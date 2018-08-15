@@ -17,7 +17,7 @@
 
 
 	<% Table.all.each do |rt| %>
-	  <label data-toggle="buttons-radio" class="btn btn-primary <%= 'box3' if @slot.table_id != rt.id %> <%= 'reserved' if @slot.table_id == rt.id %>" for="slot_table_id_<%=rt.id%>">
+	  <label class="btn btn-primary slot_check <%= 'box3' if @slot.table_id != rt.id %> <%= 'reserved' if @slot.table_id == rt.id %>" for="slot_table_id_<%=rt.id%>">
 	    <%= f.radio_button :table_id, rt.id %>
 	    <span><%= rt.id %> <span style="font-size: 12px;"><%= 'RESERVADO' if @slot.table_id == rt.id %></span></span>
 	  </label>
@@ -33,3 +33,10 @@
 
 <%= link_to 'Back', root_path %>
 </center>
+
+<script type="text/javascript">
+$(".slot_check").click(function(){
+  $(".slot_check").removeClass('active');
+  $(this).addClass('active');
+});
+</script>
