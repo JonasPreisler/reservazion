@@ -1,5 +1,5 @@
 <center>
-<%= simple_form_for(@slot) do |f| %>
+<%= simple_form_for(@slot, :html => {:class=> "myForm"}) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -27,7 +27,7 @@
     <br />
 
 	<div class="form-actions">
-	  <%= f.submit class: 'btn-submit box2' %>
+	  <%= f.submit class: 'btn-submit box2', :name=>'commit' %>
   </div>
 <% end %>
 <%= link_to 'Back', root_path %>
@@ -37,5 +37,23 @@
 $(".slot_check").click(function(){
   $(".slot_check").removeClass('active');
   $(this).addClass('active');
+});
+
+</script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script>
+  
+$(window).on("beforeunload", function() {
+  return "Are you sure? You didn't finish the reservation!";
+});
+
+$(document).ready(function() {
+  $("#myForm").on("submit", function(e) {
+    //check form to make sure it is kosher
+    //remove the ev
+    $(window).off("beforeunload");
+    return true;
+  });
 });
 </script>

@@ -21,4 +21,8 @@ Rails.application.routes.draw do
     get '/table', to: 'modals#table'
     get '/dates', to: 'modals#dates'
   end
+  devise_scope :user do
+    get '/admin', to: 'devise/sessions#new'
+    get '/signup', to: 'devise/registrations#new'
+  end
 end

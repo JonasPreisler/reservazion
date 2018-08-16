@@ -32,7 +32,7 @@
 
 	<h2>
 	  <strong><%= I18n.t 'reserveddate' %>:</strong>
-	  <%= @reservation.slot.date.strftime("%d/%m") %>
+	  <%= @reservation.slot.date.strftime("%A %d/%m") %>
 	</h2>
 
 	<h2>
@@ -50,7 +50,9 @@
 	  <%= @reservation.guest %>
 	</h2>
 	<br />
-	<%= link_to 'Change', edit_reservation_path(@reservation) %> |
+	<hr>
+	<%= link_to 'Change date', edit_reservation_path(@reservation) %><br />
+	<%= link_to 'Change table', edit_slot_path(@reservation.slot) %><br />
     <%= link_to 'Cancel', @reservation, method: :delete, data: { confirm: 'Are you sure?.' } %>
 
 </center>

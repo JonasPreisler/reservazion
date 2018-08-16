@@ -13,6 +13,7 @@ es:
   login: "Iniciar sesión"
   username: "email"
   password: "Contraseña"
+  repeat-password: "Repite la contraseña"
   activerecord:
     errors:
       messages:

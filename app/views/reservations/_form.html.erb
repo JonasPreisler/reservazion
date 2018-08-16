@@ -49,8 +49,13 @@ $(document).ready(function(){
     });
 });
 </script>
+<div class="pull-right">
+  <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
+  <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
+  <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
+</div>
 
-<center><%= link_to "Reservations dashboard", reservations_path, class: 'btn btn-primary box3' if user_signed_in? %></center>
+<%= link_to "Admin dashboard", reservations_path, class: 'btn btn-primary box6' if user_signed_in? %>
 
 <%= simple_form_for(@reservation) do |f| %>
   <%= f.error_notification %>

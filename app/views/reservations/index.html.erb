@@ -1,13 +1,18 @@
+<div class="pull-right">
+  <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
+  <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
+  <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
+</div>
 
 <p id="notice"><%= notice %></p>
 
 <table class="table table-striped grey-text backend">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Guests</th>
-      <th>Table</th>
+      <th><%= I18n.t 'reserveddate' %></th>
+      <th><%= I18n.t 'reservedtime' %></th>
+      <th><%= I18n.t 'reservedguests' %></th>
+      <th><%= I18n.t 'reservedtable' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,15 +20,15 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.slot.date.to_date.today? %>
+        <% if reservation.slot.date.to_date.today? and reservation.slot.table_id != nil %>
         <td class="today">
-          <%= reservation.date %></td>
+          <%= I18n.t 'today' %></td>
         <td class="today">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="today">
           <%= reservation.guest %></td>
         <td class="today">
-          <%= reservation.table_id %></td>
+          <%= reservation.slot.table_id %></td>
         <td class="today">
           <%= link_to 'Show', reservation %></td>
         <td class="today">
@@ -35,15 +40,15 @@
     <% end %>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.slot.date.to_date.future? %>
+        <% if reservation.slot.date.to_date.future? and reservation.slot.table_id != nil %>
         <td class="future">
-          <%= reservation.date %></td>
+          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
         <td class="future">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="future">
           <%= reservation.guest %></td>
         <td class="future">
-          <%= reservation.table_id %></td>
+          <%= reservation.slot.table_id %></td>
         <td class="future">
           <%= link_to 'Show', reservation %></td>
         <td class="future">
@@ -55,15 +60,102 @@
     <% end %>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.slot.date.to_date.past? %>
+        <% if reservation.slot.date.to_date.past? and reservation.slot.table_id != nil %>
         <td class="past">
-          <%= reservation.date %></td>
+          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
         <td class="past">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="past">
           <%= reservation.guest %></td>
         <td class="past">
-          <%= reservation.table_id %></td>
+          <%= reservation.slot.table_id %></td>
+        <td class="past">
+          <%= link_to 'Show', reservation %></td>
+        <td class="past">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="past">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="paginate-parent">
+    <div class="paginate">
+        <%= paginate @reservations %>
+    </div>
+</div>
+
+
+<br>
+
+<%= link_to 'New Reservation', new_reservation_path %>
+
+<br>
+
+<table class="table table-striped grey-text backend">
+  <thead>
+    <tr>
+      <th><%= I18n.t 'reserveddate' %></th>
+      <th><%= I18n.t 'reservedtime' %></th>
+      <th><%= I18n.t 'reservedguests' %></th>
+      <th><%= I18n.t 'reservedtable' %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <% if reservation.slot.date.to_date.today? and reservation.slot.table_id.nil? %>
+        <td class="today">
+          <%= I18n.t 'today' %></td>
+        <td class="today">
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
+        <td class="today">
+          <%= reservation.guest %></td>
+        <td class="today">
+          <%= reservation.slot.table_id %></td>
+        <td class="today">
+          <%= link_to 'Show', reservation %></td>
+        <td class="today">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="today">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <% if reservation.slot.date.to_date.future? and reservation.slot.table_id.nil? %>
+        <td class="future">
+          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+        <td class="future">
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
+        <td class="future">
+          <%= reservation.guest %></td>
+        <td class="future">
+          <%= reservation.slot.table_id %></td>
+        <td class="future">
+          <%= link_to 'Show', reservation %></td>
+        <td class="future">
+          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td class="future">
+          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <% if reservation.slot.date.to_date.past? and reservation.slot.table_id.nil? %>
+        <td class="past">
+          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+        <td class="past">
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
+        <td class="past">
+          <%= reservation.guest %></td>
+        <td class="past">
+          <%= reservation.slot.table_id %></td>
         <td class="past">
           <%= link_to 'Show', reservation %></td>
         <td class="past">

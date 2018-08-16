@@ -43,6 +43,8 @@ en:
   login: "Log in"
   username: "Email"
   password: "Password"
+  success: "dsds"
+  repeat-password: "Repeat password"
   helpers:
     submit:
       slot:

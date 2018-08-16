@@ -13,6 +13,7 @@ nb:
   login: "Logg inn"
   username: "email"
   password: "Passord"
+  repeat-password: "Gjenta passord"
   activerecord:
     errors:
       messages:

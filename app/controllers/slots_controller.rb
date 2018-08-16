@@ -46,7 +46,7 @@ class SlotsController < ApplicationController
     respond_to do |format|
       if @slot.update(slot_params)
         @reservation = Reservation.find_by_slot_id(@slot.id)
-        format.html { redirect_to reservation_path(@reservation), notice: 'Slot was successfully updated.' }
+        format.html { redirect_to reservation_path(@reservation), notice: '' }
         format.json { render :show, status: :ok, location: @slot }
       else
         format.html { render :edit }
