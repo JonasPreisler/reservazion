@@ -1,48 +1,54 @@
 <script> 
 $(document).ready(function(){
     $('#day1').click(function(){
-       $(".close2").not("#1").slideUp();
-       $("#1").slideToggle("slow");
+       $(".close2").not("#1").fadeOut(800);
+       $("#1").fadeToggle(2000);
     });
 
     $('#day2').click(function(){
-       $(".close2").not("#2").slideUp();
-       $("#2").slideToggle("slow");
+       $(".close2").not("#2").fadeOut(800);
+       $("#2").fadeToggle(2000);
     });
 
     $('#day3').click(function(){
-       $(".close2").not("#3").slideUp();
-       $("#3").slideToggle("slow");
+       $(".close2").not("#3").fadeOut(800);
+       $("#3").fadeToggle(2000);
     });
 
     $("#day4").click(function(){
-       $(".close2").not("#4").slideUp();
-        $("#4").slideToggle("slow");
+       $(".close2").not("#4").fadeOut(800);
+        $("#4").fadeToggle("slow");
     });
     $("#day5").click(function(){
-       $(".close2").not("#5").slideUp();
-        $("#5").slideToggle("slow");
+       $(".close2").not("#5").fadeOut(800);
+        $("#5").fadeToggle("slow");
     });
     $("#day6").click(function(){
-       $(".close2").not("#6").slideUp();
-        $("#6").slideToggle("slow");
+       $(".close2").not("#6").fadeOut(800);
+        $("#6").fadeToggle("slow");
     });
     $("#day7").click(function(){
-       $(".close2").not("#7").slideUp();
-        $("#7").slideToggle("slow");
+       $(".close2").not("#7").fadeOut(800);
+        $("#7").fadeToggle("slow");
     });
     $("#day8").click(function(){
-       $(".close2").not("#8").slideUp();
-        $("#8").slideToggle("slow");
+       $(".close2").not("#8").fadeOut(800);
+        $("#8").fadeToggle("slow");
     });
     $("#day9").click(function(){
-       $(".close2").not("#9").slideUp();
-        $("#9").slideToggle("slow");
+       $(".close2").not("#9").fadeOut(800);
+        $("#9").fadeToggle("slow");
+    });
+    $("#day10").click(function(){
+       $(".close2").not("#10").fadeOut(800);
+        $("#10").fadeToggle("slow");
+    });
+    $("#day11").click(function(){
+       $(".close2").not("#11").fadeOut(800);
+        $("#11").fadeToggle("slow");
     });
 });
 </script>
-
-
 
 <%= simple_form_for(@reservation) do |f| %>
   <%= f.error_notification %>
@@ -51,7 +57,7 @@ $(document).ready(function(){
   <br />
   <br />
   <center>
-    ¿Cuántos invitados?<br /><br />
+    <%= I18n.t 'guests' %><br /><br />
     <%= f.number_field :guest, :value=>2, class: 'box4' %>
   </center>
   <br />
@@ -62,8 +68,8 @@ $(document).ready(function(){
     <table>
       <thead>
           <tr>
-            <th id="item_direction" style="padding-right: 25px;"><span id="day1">Today</</th>
-            <th id="item_direction" style="padding-right: 25px;"><span id="day2">Tomorrow</th>
+            <th id="item_direction" style="padding-right: 25px;"><span id="day1"><%= I18n.t 'today' %></</th>
+            <th id="item_direction" style="padding-right: 25px;"><span id="day2"><%= I18n.t 'tomorrow' %></th>
             <th id="item_direction" style="padding-right: 25px;"><span id="day3"><%= (Date.today + 2.days).strftime("%d/%m") %></th>
             <th id="item_direction" style="padding-right: 25px;"><span id="day4"><%= (Date.today + 3.days).strftime("%d/%m") %></th>
             <th id="item_direction" style="padding-right: 25px;"><span id="day5"><%= (Date.today + 4.days).strftime("%d/%m") %></th>
@@ -87,7 +93,7 @@ $(document).ready(function(){
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
           <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
           <%= sl.time.strftime('%H:%M') %><br />
-          <span class="weekday">Today</span>
+          <span class="weekday"><%= I18n.t 'today' %></span>
         </label>
       <% end %>
     <% end %>
@@ -99,7 +105,7 @@ $(document).ready(function(){
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
           <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
           <%= sl.time.strftime('%H:%M') %><br />
-          <span class="weekday" style="margin-left: -6px;">Tomorrow</span>
+          <span class="weekday" style="margin-left: -6px;"><%= I18n.t 'tomorrow' %></span>
         </label>
       <% end %>
     <% end %>
@@ -117,7 +123,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="4" class="close" style="display: none;">
+  <div id="4" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 3.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -129,7 +135,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="5" class="close" style="display: none;">
+  <div id="5" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 4.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -141,7 +147,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="6" class="close" style="display: none;">
+  <div id="6" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 5.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -153,7 +159,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="7" class="close" style="display: none;">
+  <div id="7" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 6.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -165,7 +171,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="8" class="close" style="display: none;">
+  <div id="8" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 7.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -177,7 +183,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="9" class="close" style="display: none;">
+  <div id="9" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 8.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -189,7 +195,7 @@ $(document).ready(function(){
     <% end %>
   </div>  
 
-  <div id="10" class="close" style="display: none;">
+  <div id="10" class="close2" style="display: none;">
     <% Slot.all.each do |sl| %>
       <% if sl.date.to_date == Date.today + 9.days %>
         <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
@@ -199,9 +205,36 @@ $(document).ready(function(){
         </label>
       <% end %>
     <% end %>
-  </div>  
+  </div>
+
+
+  <div id="10" class="close2" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 10.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <%= sl.time.strftime('%H:%M') %><br />
+          <span class="weekday"><%= (Date.today + 9.days).strftime("%b %d") %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div id="10" class="close2" style="display: none;">
+    <% Slot.all.each do |sl| %>
+      <% if sl.date.to_date == Date.today + 11.days %>
+        <label class="btn btn-primary box3" for="reservation_slot_id_<%=sl.id%>">
+          <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
+          <%= sl.time.strftime('%H:%M') %><br />
+          <span class="weekday"><%= (Date.today + 9.days).strftime("%b %d") %></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
 
 </center>
 
   
 <% end %>
+

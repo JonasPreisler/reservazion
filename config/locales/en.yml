@@ -1,7 +1,6 @@
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
-#
 # To use the locales, use `I18n.t`:
 #
 #     I18n.t 'hello'
@@ -30,4 +29,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  guests: "How many guests?"
+  today: "Today"
+  tomorrow: "Tomorrow"
+  table: "Choose table"
+  reserve: "Reserve"
+  redirect: "Redirecting to Messenger.com after"
+  seconds: "seconds"
+  reserveddate: "Date"
+  reservedtime: "Time"
+  reservedtable: "Table"
+  reservedguests: "Guests"
+  login: "Log in"
+  username: "Username"
+  password: "Password"
+  helpers:
+    submit:
+      slot:
+        update: "Reserve"
+        edit: "dasd"

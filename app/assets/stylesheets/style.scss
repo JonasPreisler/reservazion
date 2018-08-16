@@ -146,8 +146,31 @@
   margin-bottom: 5px !important;
 }
 .box3:hover { -webkit-box-shadow:none;box-shadow:none;background:#494949 !important; }
-.box3:visited { -webkit-box-shadow:none;box-shadow:none;background:#494949 !important; }
 
+.box5 {-webkit-box-shadow:0 4px 8px 1px rgba(97, 97, 97, 1),0 1px 7px 1px rgba(97, 97, 97, 1),0 2px 2px -1px rgba(97, 97, 97, 1);box-shadow:0 4px 8px 1px rgba(97, 97, 97, 1),0 1px 7px 1px rgba(97, 97, 97, 1),0 2px 2px -1px rgba(97, 97, 97, 1);
+  -webkit-transition: -webkit-box-shadow 1.0s;
+  -moz-transition:    -webkit-box-shadow 1.0s;
+  -ms-transition:     -webkit-box-shadow 1.0s;
+  -o-transition:      -webkit-box-shadow 1.0s;
+  transition:         -webkit-box-shadow 1.0s;
+  -webkit-transition: box-shadow 1.5s;
+  -moz-transition:    box-shadow 1.0s;
+  -ms-transition:     box-shadow 1.0s;
+  -o-transition:      box-shadow 1.0s;
+  transition:         box-shadow 1.0s;
+  -webkit-transition: -webkit-background 1.0s;
+  -moz-transition:    -webkit-background 1.0s;
+  -ms-transition:     -webkit-background 1.0s;
+  -o-transition:      -webkit-background 1.0s;
+  transition:         -webkit-background 1.0s;
+  -webkit-transition: background 1.0s;
+  -moz-transition:    background 1.0s;
+  -ms-transition:     background 1.0s;
+  -o-transition:      background 1.0s;
+  transition:         background 1.0s;
+  width: 26%;
+  margin-bottom: 5px !important;
+}
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   padding: 30px;
   border-radius: 10px !important;
@@ -249,4 +272,22 @@ div.ex1 {
   text-align: center;
 }
 
+th {
+  cursor:pointer;
+}
+
 /* END OF NEW RESERVATION PAGE */
+
+.paginate-parent { overflow: hidden; }
+.paginate {
+  background-color: #f3f2f2;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  float: left;
+  word-spacing: 5px;
+}
+
+.button {
+  color: #1c1c1c;
+}

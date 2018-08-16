@@ -3,7 +3,7 @@
 <br />
 
     <h4>
-	  Redirecting to Messenger.com after <span id="countdown">10</span> seconds
+	  <%= I18n.t 'redirect' %> <span id="countdown">10</span> <%= I18n.t 'seconds' %>
 	</h4>
 
 
@@ -31,25 +31,26 @@
 	</script>
 
 	<h2>
-	  <strong>Fecha:</strong>
-	  <%= @reservation.slot.date %>
+	  <strong><%= I18n.t 'reserveddate' %>:</strong>
+	  <%= @reservation.slot.date.strftime("%d/%m") %>
 	</h2>
 
 	<h2>
-	  <strong>Hora:</strong>
+	  <strong><%= I18n.t 'reservedtime' %>:</strong>
 	  <%= @reservation.slot.time.strftime('%H:%M') %>
 	</h2>
 
 	<h2>
-	  <strong>Mesa:</strong>
+	  <strong><%= I18n.t 'reservedtable' %>:</strong>
 	  <%= @reservation.slot.table_id %>
 	</h2>
 
 	<h2>
-	  <strong>Invitados:</strong>
+	  <strong><%= I18n.t 'guests' %>:</strong>
 	  <%= @reservation.guest %>
 	</h2>
-	<%= link_to 'Change reservation', edit_reservation_path(@reservation) %> |
-    <%= link_to 'Cancel reservation', @reservation, method: :delete, data: { confirm: 'Are you sure?.' } %>
+	<br />
+	<%= link_to 'Change', edit_reservation_path(@reservation) %> |
+    <%= link_to 'Cancel', @reservation, method: :delete, data: { confirm: 'Are you sure?.' } %>
 
 </center>

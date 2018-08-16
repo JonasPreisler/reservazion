@@ -14,12 +14,12 @@
       <% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Companies', businesses_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
-        <li><%= link_to 'Orders', orders_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
-        <li><%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+    <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    <% end %>
   </div><!-- /.container-fluid -->
 </nav>

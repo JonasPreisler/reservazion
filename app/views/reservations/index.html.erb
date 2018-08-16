@@ -1,8 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<table class="table table-striped grey-text">
-<h1>Reservations</h1>
+<table class="table table-striped grey-text backend">
   <thead>
     <tr>
       <th>Date</th>
@@ -16,11 +15,11 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.date.to_date.today? %>
+        <% if reservation.slot.date.to_date.today? %>
         <td class="today">
           <%= reservation.date %></td>
         <td class="today">
-          <%= reservation.time.strftime('%H:%M') %></td>
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="today">
           <%= reservation.guest %></td>
         <td class="today">
@@ -36,11 +35,11 @@
     <% end %>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.date.to_date.future? %>
+        <% if reservation.slot.date.to_date.future? %>
         <td class="future">
           <%= reservation.date %></td>
         <td class="future">
-          <%= reservation.time.strftime('%H:%M') %></td>
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="future">
           <%= reservation.guest %></td>
         <td class="future">
@@ -56,11 +55,11 @@
     <% end %>
     <% @reservations.each do |reservation| %>
       <tr>
-        <% if reservation.date.to_date.past? %>
+        <% if reservation.slot.date.to_date.past? %>
         <td class="past">
           <%= reservation.date %></td>
         <td class="past">
-          <%= reservation.time.strftime('%H:%M') %></td>
+          <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="past">
           <%= reservation.guest %></td>
         <td class="past">
@@ -76,6 +75,12 @@
     <% end %>
   </tbody>
 </table>
+<div class="paginate-parent">
+    <div class="paginate">
+        <%= paginate @reservations %>
+    </div>
+</div>
+
 
 <br>
 

@@ -1,17 +1,17 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   layout 'mobile', only: [:new, :form, :create, :show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index]
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.page(params[:page])
   end
 
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    @table_id = Table.all
   end
 
   # GET /reservations/new
@@ -87,6 +87,10 @@ class ReservationsController < ApplicationController
       params.fetch(:reservation).permit(:date, :time, :table_id, :guest, :messenger_user_id, :'messenger user id', :slot_id)
     end
 
-
-
+    def require_login
+      unless current_user
+        flash[:notice] = "You must log in to access the merchants area."
+        redirect_to new_user_session_path
+      end
+    end
 end
