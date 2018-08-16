@@ -1,8 +1,4 @@
-<div class="pull-right">
-  <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
-  <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
-  <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
-</div>
+<%= render 'reservations/lang' %>
 
 <p id="notice"><%= notice %></p>
 
@@ -87,12 +83,13 @@
 </div>
 
 
-<br>
 
 <%= link_to 'New Reservation', new_reservation_path %>
 
 <br>
-
+<hr>
+<h2 style="color:#1c1c1c;font-weight:700 !important;padding-top:20px;"><%= I18n.t 'uncompleted' %></h2>
+<br>
 <table class="table table-striped grey-text backend">
   <thead>
     <tr>

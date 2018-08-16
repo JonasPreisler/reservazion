@@ -14,6 +14,7 @@ nb:
   username: "email"
   password: "Passord"
   repeat-password: "Gjenta passord"
+  uncompleted: "Ufullstendige reservasjoner"
   activerecord:
     errors:
       messages:

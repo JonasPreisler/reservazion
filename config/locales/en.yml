@@ -45,6 +45,7 @@ en:
   password: "Password"
   success: "dsds"
   repeat-password: "Repeat password"
+  uncompleted: "Uncompleted reservations"
   helpers:
     submit:
       slot:
