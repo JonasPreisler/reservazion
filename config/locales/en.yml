@@ -41,7 +41,7 @@ en:
   reservedtable: "Table"
   reservedguests: "Guests"
   login: "Log in"
-  username: "Username"
+  username: "Email"
   password: "Password"
   helpers:
     submit:

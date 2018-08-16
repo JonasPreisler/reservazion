@@ -11,7 +11,7 @@ es:
   reservedtable: "Mesa"
   reservedguests: "Número de invitados"
   login: "Iniciar sesión"
-  username: "Usuario"
+  username: "email"
   password: "Contraseña"
   activerecord:
     errors:

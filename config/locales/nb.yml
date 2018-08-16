@@ -11,7 +11,7 @@ nb:
   reservedtable: "Bord"
   reservedguests: "Antall gjester"
   login: "Logg inn"
-  username: "Brukernavn"
+  username: "email"
   password: "Passord"
   activerecord:
     errors:
