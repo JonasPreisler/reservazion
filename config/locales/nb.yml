@@ -23,6 +23,7 @@ nb:
   edit: "__Redigér__"
   delete: "__Slett__"
   register: "Registrér"
+  reservationid: "Reservasjons-ID"
   simple_form:
     "ja": 'Ja'
     "nei": 'Nei'

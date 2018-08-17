@@ -48,7 +48,6 @@ class SlotsController < ApplicationController
         @reservation = Reservation.find_by_slot_id(@slot.id)
         format.html { redirect_to reservation_path(@reservation), notice: '' }
         format.json { render :show, status: :ok, location: @slot }
-        render json: { "messages": [   {"text": "#{@slot.id}, welcome!"} ] }
       else
         format.html { render :edit }
         format.json { render json: @slot.errors, status: :unprocessable_entity }

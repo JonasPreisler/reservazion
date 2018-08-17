@@ -23,6 +23,7 @@ es:
   show: "__Espectáculo__"
   edit: "__Editar__"
   delete: "__Borrar__"
+  reservationid: "ID de reserva"
   simple_form:
     "si": 'Si'
     "no": 'No'

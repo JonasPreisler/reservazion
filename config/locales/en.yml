@@ -54,6 +54,7 @@ en:
   show: "__Show__"
   edit: "__Edit__"
   delete: "__Delete__"
+  reservationid: "Reservation ID"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
