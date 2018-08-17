@@ -15,12 +15,25 @@ es:
   password: "Contraseña"
   repeat-password: "Repite la contraseña"
   uncompleted: "Reservas no completadas"
+  secret: "Secreto"
+  secret-description: "Envía este secreto de terceros."
   logout: "__Cerrar sesión__"
   register: "Registro"
   newreservation: "__Nueva reserva__"
   show: "__Espectáculo__"
   edit: "__Editar__"
   delete: "__Borrar__"
+  simple_form:
+    "si": 'Si'
+    "no": 'No'
+    required:
+      text: 'Necesario'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Por favor complete todos los campos"
   devise:
     sessions:
       user:

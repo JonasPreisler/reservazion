@@ -46,12 +46,25 @@ en:
   success: "dsds"
   repeat-password: "Repeat password"
   uncompleted: "Uncompleted reservations"
+  secret: "Secret"
+  secret-description: "Send this secret from 3rd party"
   logout: "__Log out__"
   register: "Register"
   newreservation: "__New reservation__"
   show: "__Show__"
   edit: "__Edit__"
   delete: "__Delete__"
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please fill out all the fields"
   devise:
     sessions:
       user:

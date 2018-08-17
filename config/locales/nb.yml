@@ -15,12 +15,25 @@ nb:
   password: "Passord"
   repeat-password: "Gjenta passord"
   uncompleted: "Ufullstendige reservasjoner"
+  secret: "Hemmelighet"
+  secret-description: "Send denne hemmeligheten fra tredje part."
   logout: "__Logg ut__"
   newreservation: "__Ny reservasjon__"
   show: "__Vis__"
   edit: "__Redigér__"
   delete: "__Slett__"
   register: "Registrér"
+  simple_form:
+    "ja": 'Ja'
+    "nei": 'Nei'
+    required:
+      text: 'Nødvendig'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Vennligst fyll ut alle feltene"
   devise:
     sessions:
       user:

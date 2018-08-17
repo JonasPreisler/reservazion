@@ -17,7 +17,8 @@
     <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= render 'reservations/lang' %></li>
+          <li style="margin-top:12px;"><%= render 'reservations/lang' %></li>
+          <li><div class="btn btn-primary box shadow logout-admin navbar-padding"><%= string_with_link(t('edit'), edit_user_registration_path) %></div></li>
           <li><div class="btn btn-primary box shadow logout-admin navbar-padding"><%= string_with_link(t('logout'), destroy_user_session_path) %></div>
           </li>
         </ul>

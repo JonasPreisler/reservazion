@@ -56,6 +56,9 @@ $(document).ready(function(){
   <br />
   <center>
   <br />
+  <% if current_user.secret? %>
+    Your secret: <%= current_user.secret %>
+  <% end %>
   <br />
   <br />
   <%= link_to "Admin dashboard", reservations_path, class: 'box6 box62' %>

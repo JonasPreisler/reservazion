@@ -1,27 +1,29 @@
-<h4><b>EDIT <%= resource_name.to_s.humanize %></b></h4>
+<center>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "La det være tomt hvis du ikke vil endre det", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "Vi trenger ditt nåværende passord for å bekrefte endringene dine", required: true %>
+    <h4><b><%= I18n.t "secret" %></b></h4>  <%= f.input :secret, label: false %>
+    (<%= I18n.t "secret-description" %>)
+    <br />
+    <br />
+    <%= I18n.t "username" %>
+    <%= f.input :email, required: true, autofocus: true, label: false %><br />
+    <%= I18n.t "password" %>
+    <%= f.input :password, required: true, hint: ("<br />#{@minimum_password_length} characters minimum".html_safe if @minimum_password_length), label: false %><br />
+    <%= I18n.t "repeat-password" %>
+    <%= f.input :password_confirmation, required: true, label: false %><br />
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Oppdatér" %>
+    <%= f.button :submit, class: 'button login' %>
   </div>
 <% end %>
 
-<h3>Avbryt kontoen min</h3>
+<%= render "devise/shared/links" %>
+</div>
+</center>
 
-<p>Misfornøyd? <%= link_to "Avbryt kontoen min", registration_path(resource_name), data: { confirm: "Er du sikker?" }, method: :delete %></p>
-
-<%= link_to "Tilbake", :back %>
