@@ -9,12 +9,26 @@ nb:
   reserveddate: "Dato"
   reservedtime: "Tid"
   reservedtable: "Bord"
-  reservedguests: "Antall gjester"
+  reservedguests: "Gjester"
   login: "Logg inn"
   username: "email"
   password: "Passord"
   repeat-password: "Gjenta passord"
   uncompleted: "Ufullstendige reservasjoner"
+  logout: "__Logg ut__"
+  newreservation: "__Ny reservasjon__"
+  show: "__Vis__"
+  edit: "__Redigér__"
+  delete: "__Slett__"
+  register: "Registrér"
+  devise:
+    sessions:
+      user:
+        signed_in: "Du er nå logget inn"
+        signed_out: "Du er nå logget ut"
+    registrations:
+      user:
+        signed_up: "Du er nå registrert"
   activerecord:
     errors:
       messages:

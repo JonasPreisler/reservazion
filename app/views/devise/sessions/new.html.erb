@@ -1,12 +1,11 @@
-<%= render 'reservations/lang' %>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;">
 
 <center>
 
-<p id="notice"><%= notice %></p>
+<p id="notice" style="color: #1c1c1c;"><%= notice %></p>
 
 <h4><b><%= I18n.t "login" %></b></h4>
-
+<br />
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
   	<%= I18n.t "username" %>
@@ -16,7 +15,7 @@
   </div>
   <br />
   <div class="form-actions">
-    <%= f.button :submit, "Log in", class: 'button' %>
+    <%= f.button :submit, "Log in", class: 'button login' %>
   </div>
 <% end %>
 

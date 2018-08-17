@@ -215,6 +215,7 @@ label > input + span{
 /* RESERVATIONS INDEX PAGE */
 .today {
   background: #ccffe5 !important;
+  text-transform: capitalize;
 }
 .today a {
   color: #1c1c1c !important;
@@ -224,11 +225,16 @@ label > input + span{
   background: none;
   text-decoration: none;
 }
+.future {
+  text-transform: capitalize;
+}
 .past {
-  background: #c3c2c2 !important;
+  background: #606060 !important;
+  color: #f3f2f2;
+  text-transform: capitalize;
 }
 .past a {
-  color: #1c1c1c !important;
+  color: #f3f2f2 !important;
 }
 .past a:hover {
   color: #888 !important;
@@ -276,6 +282,50 @@ th {
   cursor:pointer;
 }
 
+.dropbtn {
+    background-color: #494949;
+    color: white;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top:5px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #606060;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #606060;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
 /* END OF NEW RESERVATION PAGE */
 
 .paginate-parent { overflow: hidden; }
@@ -291,8 +341,34 @@ th {
 .button {
   color: #1c1c1c;
 }
-.box6 {
-  background: #c3c2c2 !important;
-  padding: 10px;
-  color: #1c1c1c !important;
+.login {
+  background: #c3c2c2;
 }
+.box6 {
+  flex: 1 1 auto;
+  margin-top: 30px !important;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+  text-decoration: none !important;
+  background-size: 200% auto;
+  color: #fff !important;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.box6:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+.logout {
+  border: 2px solid #c3c2c2 !important;
+}
+.logout-admin {
+  padding: 10px !important;
+}
+.box62 {
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+
+

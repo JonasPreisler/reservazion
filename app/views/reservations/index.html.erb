@@ -1,5 +1,3 @@
-<%= render 'reservations/lang' %>
-
 <p id="notice"><%= notice %></p>
 
 <table class="table table-striped grey-text backend">
@@ -26,11 +24,11 @@
         <td class="today">
           <%= reservation.slot.table_id %></td>
         <td class="today">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="today">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="today">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -38,7 +36,7 @@
       <tr>
         <% if reservation.slot.date.to_date.future? and reservation.slot.table_id != nil %>
         <td class="future">
-          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+          <%= l reservation.slot.date, format: '%A %d/%m' %></td>
         <td class="future">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="future">
@@ -46,11 +44,11 @@
         <td class="future">
           <%= reservation.slot.table_id %></td>
         <td class="future">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="future">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="future">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -58,7 +56,7 @@
       <tr>
         <% if reservation.slot.date.to_date.past? and reservation.slot.table_id != nil %>
         <td class="past">
-          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+          <%= l reservation.slot.date, format: '%A %d/%m' %></td>
         <td class="past">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="past">
@@ -66,11 +64,11 @@
         <td class="past">
           <%= reservation.slot.table_id %></td>
         <td class="past">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="past">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="past">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -83,8 +81,7 @@
 </div>
 
 
-
-<%= link_to 'New Reservation', new_reservation_path %>
+<%= string_with_link(t('newreservation'), new_reservation_path) %>
 
 <br>
 <hr>
@@ -114,11 +111,11 @@
         <td class="today">
           <%= reservation.slot.table_id %></td>
         <td class="today">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="today">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="today">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -126,7 +123,8 @@
       <tr>
         <% if reservation.slot.date.to_date.future? and reservation.slot.table_id.nil? %>
         <td class="future">
-          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+          <%= l reservation.slot.date, format: '%A %d/%m' %>
+          </td>
         <td class="future">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="future">
@@ -134,11 +132,11 @@
         <td class="future">
           <%= reservation.slot.table_id %></td>
         <td class="future">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="future">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="future">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -146,7 +144,7 @@
       <tr>
         <% if reservation.slot.date.to_date.past? and reservation.slot.table_id.nil? %>
         <td class="past">
-          <%= reservation.slot.date.strftime("%A %d/%m") %></td>
+          <%= l reservation.slot.date, format: '%A %d/%m' %></td>
         <td class="past">
           <%= reservation.slot.time.strftime('%H:%M') %></td>
         <td class="past">
@@ -154,11 +152,11 @@
         <td class="past">
           <%= reservation.slot.table_id %></td>
         <td class="past">
-          <%= link_to 'Show', reservation %></td>
+          <%= string_with_link(t('show'), reservation) %></td>
         <td class="past">
-          <%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+          <%= string_with_link(t('edit'), edit_reservation_path(reservation)) %></td>
         <td class="past">
-          <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' } %></td>
+          <%= string_with_link(t('delete'), reservation, method: :delete, data: { confirm: 'Are you sure? This can not be undone.' }) %></td>
           <% end %>
       </tr>
     <% end %>
@@ -172,5 +170,3 @@
 
 
 <br>
-
-<%= link_to 'New Reservation', new_reservation_path %>

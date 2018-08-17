@@ -46,6 +46,20 @@ en:
   success: "dsds"
   repeat-password: "Repeat password"
   uncompleted: "Uncompleted reservations"
+  logout: "__Log out__"
+  register: "Register"
+  newreservation: "__New reservation__"
+  show: "__Show__"
+  edit: "__Edit__"
+  delete: "__Delete__"
+  devise:
+    sessions:
+      user:
+        signed_in: "You are now logged in"
+        signed_out: "You are now logged out"
+    registrations:
+      user:
+        signed_up: "You are now signed up"
   helpers:
     submit:
       slot:
