@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "reservations#new"
   get '/reservations', to: "reservations#index"
-  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"} do
+    root "reservations#new"
     devise_for :users
     resources :slots
     resources :reservations

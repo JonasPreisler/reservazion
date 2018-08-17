@@ -70,7 +70,12 @@ $(document).ready(function(){
   <div class="dropdown pull-right">
   <button onclick="myFunction()" class="dropbtn">LANG</button>
     <div id="myDropdown" class="dropdown-content">
-      <%= render 'reservations/lang' %>
+      <div class="pull-right">
+        <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
+        <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
+        <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
+      </div>
+
     </div>
   </div>
 

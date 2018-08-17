@@ -89,7 +89,7 @@ class ReservationsController < ApplicationController
 
     def require_login
       unless current_user
-        flash[:notice] = "You must log in to access the merchants area."
+        flash[:notice] = "You must log in to access the backend."
         redirect_to new_user_session_path
       end
     end
